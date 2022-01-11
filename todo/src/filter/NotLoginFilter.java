@@ -23,6 +23,8 @@ public class NotLoginFilter implements Filter {
 		if(session.getAttribute("loginMember") != null) {
 			((HttpServletResponse) response).sendRedirect(((HttpServletRequest) request).getContextPath()+"/member/calendar");
 			return;
+		} else if(session.getAttribute("loginAdmin") != null) {
+			((HttpServletResponse) response).sendRedirect(((HttpServletRequest) request).getContextPath()+"/admin/adminIndex");
 		}
 
 		chain.doFilter(request, response);

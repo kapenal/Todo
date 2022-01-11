@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import service.NoticeService;
 import vo.Notice;
 
-@WebServlet("/noticeList")
+@WebServlet("/notLogin/noticeList")
 public class NoticeListController extends HttpServlet {
 	private NoticeService noticeService;
 	private final int ROW_PER_PAGE = 10;

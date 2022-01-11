@@ -32,11 +32,11 @@ div#noticeTable {
 					<table class="table table-bordered">
 						<tr>
 							<td style="text-align:center; color: #FFC107">아이디</td>
-							<td><input type="text" name="adminId" id="adminId" placeholder="아이디를 입력하세요"></td>
+							<td><input type="text" name="adminId" id="adminId" placeholder="아이디를 입력하세요" value="admin"></td>
 						</tr>
 						<tr>
 							<td style="text-align:center; color: #FFC107">비밀번호</td>
-							<td><input type="password" name="adminPw" id="adminPw" placeholder="패스워드를 입력하세요"></td>
+							<td><input type="password" name="adminPw" id="adminPw" placeholder="패스워드를 입력하세요" value="1234"></td>
 						</tr>
 						<tr>
 							<td style="text-align:center" colspan="2"><button type="button" id="loginBtn" class="btn btn-warning">로그인</button></td>
@@ -44,22 +44,24 @@ div#noticeTable {
 					</table>
 				</form>
 			</div>
+			<a href="${pageContext.request.contextPath}/notLogin/login"><button class="btn btn-info">회원 로그인</button></a>
 		</div>
 		
 		</div>
 		<div class="col-lg-6 mb-0" style="background-color: #FFC107; border-top-right-radius: 20px; border-bottom-right-radius:20px; padding-left: 0px; padding-right: 0px;">
 			<!-- 공지사항 -->
 			<div id="noticeTable" style="margin: 250px 100px;">
-				<h2 style="margin-left: 35%;">공지사항<a style="margin-left: 50%; color: white;" href="${pageContext.request.contextPath}/noticeList">more</a></h2>
+				<h2 style="margin-left: 35%;">공지사항<a style="margin-left: 50%; color: white;" href="${pageContext.request.contextPath}/notLogin/noticeList">more</a></h2>
+				<br>
 				<table border="1" style="border-color: white; width: 100%; height: 250px;" >
 					<tr>
-						<td>공지사항</td>
-						<td>작성날짜</td>
+						<td style="border-color: white; border-width: 3px;">공지사항</td>
+						<td style="border-color: white; border-width: 3px;">작성날짜</td>
 					</tr>
 					<c:forEach var="n" items="${noticeList}">
 						<tr>
-							<td width="75%"><a href="${pageContext.request.contextPath}/noticeOne?noticeNo=${n.noticeNo}">${n.noticeTitle}</a></td>
-							<td width="25%">${fn:substring(n.createDate,0,16)}</td>
+							<td width="75%" style="border-color: white; border-width: 3px;"><a href="${pageContext.request.contextPath}/notLogin/noticeOne?noticeNo=${n.noticeNo}">${n.noticeTitle}</a></td>
+							<td width="25%" style="border-color: white; border-width: 3px;">${fn:substring(n.createDate,0,16)}</td>
 						</tr>
 					</c:forEach>
 				</table>

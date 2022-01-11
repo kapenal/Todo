@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,9 +11,10 @@ import javax.servlet.http.HttpSession;
 import service.NoticeService;
 import vo.Notice;
 
-@WebServlet("/notLogin/noticeOne")
-public class NoticeOneController extends HttpServlet {
-	private NoticeService noticeService;
+
+@WebServlet("/admin/adminNoticeOne")
+public class AdminNoticeOne extends HttpServlet {
+private NoticeService noticeService;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
@@ -27,7 +26,6 @@ public class NoticeOneController extends HttpServlet {
 		request.setAttribute("loginAdmin", session.getAttribute("loginAdmin"));
 		request.setAttribute("notice", notice);
 		
-		request.getRequestDispatcher("/WEB-INF/view/noticeOne.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/adminNoticeOne.jsp").forward(request, response);
 	}
-
 }

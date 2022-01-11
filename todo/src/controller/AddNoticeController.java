@@ -28,7 +28,7 @@ public class AddNoticeController extends HttpServlet {
 		notice.setNoticeTitle(noticeTitle);
 		notice.setNoticeContent(noticeContent);
 		noticeService.insertNotice(notice);
-		response.sendRedirect(request.getContextPath()+"/noticeList");
+		response.sendRedirect(request.getContextPath()+"/admin/adminIndex");
 	}
 
 }

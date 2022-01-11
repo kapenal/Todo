@@ -29,7 +29,7 @@ public class AdminLoginController extends HttpServlet {
 		List<Notice> noticeList = noticeService.getNoticeList5();
 		request.setAttribute("noticeList", noticeList);
 		
-		// request.getRequestDispatcher("/WEB-INF/view/adminLogin.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/adminLogin.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

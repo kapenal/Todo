@@ -9,6 +9,7 @@ import java.util.Map;
 import commons.DBUtil;
 import dao.MemberDao;
 import dao.NoticeDao;
+import dao.TodoDao;
 import vo.Notice;
 
 public class NoticeService {
@@ -122,5 +123,25 @@ public class NoticeService {
 		}
 		
 		return list;
+	}
+	
+	public void removeNotice(int noticeNo) {
+		System.out.println(noticeNo +"<<<<<");
+		Connection conn = null;
+		try {
+			conn = DBUtil.getConnection("jdbc:mariadb://3.36.55.237:3306/todo", "root", "java1004");
+			noticeDao = new NoticeDao();
+			noticeDao.deleteNotice(conn, noticeNo);
+			System.out.println("공지사항 삭제 완료");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("공지사항 삭제 실패");
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

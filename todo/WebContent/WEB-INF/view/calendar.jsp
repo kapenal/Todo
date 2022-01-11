@@ -13,7 +13,6 @@
 	div#calendar{
 		text-align: center;
 	}
-	
 </style> 
 </head>
 <body>
@@ -24,7 +23,7 @@
 <!-- 		</div> -->
 		<div class="col-lg-6 mb-0 align-itehms-left" style="background-color: black; text-align: center;  border-style: solid;border-color: #FFC107; border-right-color: black; border-top-left-radius: 20px; border-bottom-left-radius:20px; padding-left: 0px; padding-right: 0px;">
 		<div style="margin: 240px 100px; ">
-			<h1 class="text-white"><span class="text-warning">${loginMember.memberId}</span>님 반갑습니다</h1>
+			<h1 class="text-white" style="font-size: 40pt;"><span class="text-warning">${loginMember.memberId}</span>님 반갑습니다</h1>
 			<br>
 			<a style="margin-right: 5%;'" href="${pageContext.request.contextPath}/member/logout" class="btn btn-warning">로그아웃</a>
 			<a href="${pageContext.request.contextPath}/member/removeMember" class="btn btn-warning">회원탈퇴</a>

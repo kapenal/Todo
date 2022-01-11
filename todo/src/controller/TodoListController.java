@@ -40,9 +40,11 @@ public class TodoListController extends HttpServlet {
 		
 		todoService = new TodoService();
 		List<Todo> todoList = todoService.getTodoListByList(todo);
-		
+		int todoSize = todoList.size();
+		// System.out.println(todoSize + "일정 개수");
+		request.setAttribute("todoSize", todoSize);
 		request.setAttribute("todoList", todoList);
-		System.out.println(todoList.size());
+		// System.out.println(todoList.size());
 		request.setAttribute("todoDate", todoDate);
 		request.getRequestDispatcher("/WEB-INF/view/todoList.jsp").forward(request, response);
 	}

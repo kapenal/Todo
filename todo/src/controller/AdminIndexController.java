@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,12 +17,24 @@ import vo.Notice;
 @WebServlet("/admin/adminIndex")
 public class AdminIndexController extends HttpServlet {
 	private NoticeService noticeService;
-	
+	private final int ROW_PER_PAGE = 10;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		noticeService = new NoticeService();
-		List<Notice> noticeList = noticeService.getNoticeList5();
-		request.setAttribute("noticeList", noticeList);
+		int currentPage;
+		if(request.getParameter("currentPage") == null) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		HttpSession session = ((HttpServletRequest)request).getSession();
+		request.setAttribute("loginAdmin", session.getAttribute("loginAdmin"));
+		Map<String, Object> map = noticeService.getNoticeList(currentPage, ROW_PER_PAGE);
+		request.setAttribute("noticeList", map.get("list"));
+		request.setAttribute("startPage", map.get("startPage"));
+		request.setAttribute("lastPage", map.get("lastPage"));
+		request.setAttribute("totalPage", map.get("totalPage"));
+		request.setAttribute("currentPage", currentPage);
 		request.getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 	}
 

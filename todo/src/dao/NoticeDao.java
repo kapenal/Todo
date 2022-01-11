@@ -10,9 +10,14 @@ import java.util.List;
 import vo.Notice;
 
 public class NoticeDao {
-	// 공지 삭제
-	public void deleteNotice(Connection conn) {
-		// 여기부터...
+	// 공지사항 삭제
+	public void deleteNotice(Connection conn, int noticeNo) throws SQLException {
+		String sql = NoticeQuery.DELETE_NOTICE;
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, noticeNo);
+		System.out.println(stmt + "NoticeDao.deleteNotice");
+		stmt.executeUpdate();
+		stmt.close();
 	}
 	
 	// 공지 작성
@@ -98,4 +103,6 @@ public class NoticeDao {
 		stmt.close();
 		return list;
 	}
+	
+	
 }

@@ -17,20 +17,23 @@
 </head>
 <body>
 	<div class="container" style="max-width: 1920px; padding-left: 0px; padding-right: 0px;">
-	<div class="row p-5" style="background-color: #8C8C8C; margin-left: 0px; margin-right: 0px; height: 1007px;">
-		<div class="col-lg-6 mb-0 align-itehms-left" style="background-color: black; text-align: center;  border-style: solid;border-color: #FFC107; border-right-color: black; border-top-left-radius: 20px; border-bottom-left-radius:20px; padding-left: 0px; padding-right: 0px;">
+	<div class="row p-4" style="background-color: #8C8C8C; margin-left: 0px; margin-right: 0px;  height: 969px;">
+		<div class="col-lg-6 mb-0 align-itehms-left" style="background-color: #ffebb5; text-align: center;  border-style: solid;border-color: #FFC107; border-right-color: black; border-top-left-radius: 20px; border-bottom-left-radius:20px; padding-left: 0px; padding-right: 0px; max-height: 100%;">
 		<div style="margin: 280px 100px; ">
-			<h1 style="color: #FFC107; font-size: 70pt;">공지사항 작성</h1>
+			<h1 style="color: black; font-size: 70pt;">공지사항 작성</h1>
 			<br>
 			<br>
-			<h1 class="text-white"><span class="text-warning">${loginAdmin.adminId}</span>님 반갑습니다</h1>
+			<h1 style="font-size: 40pt; color: #8C8C8C;"><span style="color: black;">${loginAdmin.adminId}</span>님 반갑습니다</h1>
 			<br>
 			<a style="margin-right: 5%;'" href="${pageContext.request.contextPath}/admin/adminLogout" class="btn btn-warning">로그아웃</a>
 		</div>
 		
 		</div>
-		<div class="col-lg-6 mb-0" style="background-color: #FFC107; border-top-right-radius: 20px; border-bottom-right-radius:20px; padding-left: 0px; padding-right: 0px;">
-			<form method="post" id="addNoticeForm" action="${pageContext.request.contextPath}/admin/addNotice" style="margin: 130px 100px;">
+		<div class="col-lg-6 mb-0" style="background-color: #FFFFFF; border-style: solid; border-color: #E0B94F; border-left-color: #353535; border-top-right-radius: 20px; border-bottom-right-radius:20px; padding-left: 0px; padding-right: 0px;">
+			<div style="margin: 110px 50px; background-color: #ffebb5; height: 80%; width: 90%; border-radius: 20px; border-style: solid; border-color: #BDBDBD;">
+			<div  style="margin-left: 10px; margin-right: 10px;">
+			<br>
+			<form method="post" id="addNoticeForm" action="${pageContext.request.contextPath}/admin/addNotice">
 				<h2 style="text-align: center;">공지사항</h2>
 				<br>
 				<table class="table table-bordered">
@@ -45,8 +48,10 @@
 						</td>
 					</tr>
 				</table>
-				<button style="text-align:center" type="button" id="addBtn" class="btn btn-outline-primary">저장</button>
+				<button style="text-align:center" type="button" id="addBtn" class="btn btn-primary">저장</button>
 			</form>
+			</div>
+			</div>
 			</div>
 		</div>
 	</div>

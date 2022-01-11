@@ -16,14 +16,14 @@
 </style> 
 </head>
 <body>
-	<div class="container" style="max-width: 1920px; padding-left: 0px; padding-right: 0px;">
-	<div class="row p-5" style="background-color: #8C8C8C; margin-left: 0px; margin-right: 0px; height: 1007px;">
+	<div class="container" style="max-width: 1920px; padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;">
+	<div class="row p-4" style="background-color: #8C8C8C; margin-left: 0px; margin-right: 0px; height: 969px;">
 <!-- 		<div class="jumbotron"> -->
 <!-- 			<h1 style="text-align:center">달력</h1> -->
 <!-- 		</div> -->
-		<div class="col-lg-6 mb-0 align-itehms-left" style="background-color: black; text-align: center;  border-style: solid;border-color: #FFC107; border-right-color: black; border-top-left-radius: 20px; border-bottom-left-radius:20px; padding-left: 0px; padding-right: 0px;">
+		<div class="col-lg-6 mb-0 align-itehms-left" style="background-color: #ffebb5; text-align: center;  border-style: solid;border-color: #E0B94F; border-right-color: #353535; border-top-left-radius: 20px; border-bottom-left-radius:20px; padding-left: 0px; padding-right: 0px;">
 		<div style="margin: 240px 100px; ">
-			<h1 class="text-white" style="font-size: 40pt;"><span class="text-warning">${loginMember.memberId}</span>님 반갑습니다</h1>
+			<h1  style="font-size: 40pt; color: #8C8C8C;"><span style="color: black;">${loginMember.memberId}</span>님 반갑습니다</h1>
 			<br>
 			<a style="margin-right: 5%;'" href="${pageContext.request.contextPath}/member/logout" class="btn btn-warning">로그아웃</a>
 			<a href="${pageContext.request.contextPath}/member/removeMember" class="btn btn-warning">회원탈퇴</a>
@@ -31,33 +31,33 @@
 			<br>
 			<br>
 			<br>
-			<div class="text-white" style="text-align: center;  border-radius: 50%; background-color: #FFC107; margin-left: 33%; margin-right: 33%;">
+			<div class="text-white" style="text-align: center;  border-radius: 50%; background-color: #FFFFFF; margin-left: 33%; margin-right: 33%;border-style: solid; border-color: #BDBDBD;">
 				<br>
 				<br>
 				<p style="font-size: 20pt; color: black;">이달의 일정</p> 
-				<p style="font-size: 40pt;"> ${todoList.size()}</p>
+				<p style="font-size: 40pt; color: black;"> ${todoList.size()}</p>
 				<br>
 			</div>
 		</div>
 		
 		</div>
-		<div class="col-lg-6 mb-0" style="background-color: #FFC107; border-top-right-radius: 20px; border-bottom-right-radius:20px; padding-left: 0px; padding-right: 0px;">
+		<div class="col-lg-6 mb-0" style="background-color: #FFFFff; border-style: solid; border-color: #E0B94F; border-left-color: #353535; border-top-right-radius: 20px; border-bottom-right-radius:20px; padding-left: 0px; padding-right: 0px;">
 			<!-- 달력 + todo -->
-		<div id="calendar" style=" margin-top: 70px;">
+		<div id="calendar" style=" margin-top: 60px;">
 		<h1 style=" margin-bottom:60px;">
 			<span style="margin-right: 100px;">
-				<a style="color: white;" href="${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear-1}&currentMonth=${targetMonth}">◁</a>
-				<a style="color: white;" href="${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear}&currentMonth=${targetMonth}&option=pre">◀</a>
+				<a style="color: #E0B94F;" href="${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear-1}&currentMonth=${targetMonth}">◁</a>
+				<a style="color: #E0B94F;" href="${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear}&currentMonth=${targetMonth}&option=pre">◀</a>
 			</span>
 			${targetYear}년 ${targetMonth}월 
 			<span style="margin-left: 100px;">
-				<a style="color: white;" href="${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear}&currentMonth=${targetMonth}&option=next">▶</a>
-				<a style="color: white;" href="${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear+1}&currentMonth=${targetMonth}">▷</a>
+				<a style="color: #E0B94F;" href="${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear}&currentMonth=${targetMonth}&option=next">▶</a>
+				<a style="color: #E0B94F;" href="${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear+1}&currentMonth=${targetMonth}">▷</a>
 			</span>
 		</h1>
 		</div>
-		
-		<table style="width: 100%;">
+		<div>
+		<table style="width: 95%; margin-left: 15px; margin-right: 15px; ">
 			<tr style="text-align:center">
 				<tr style="text-align:center">
 				<td class="table-danger" width="150">일</td>
@@ -73,7 +73,7 @@
 				<!-- JSTL for문 -->
 				<c:forEach var="i" begin="1" end="${startBlank+endDay+endBlank}" step="1">
 					<c:if test="${i-startBlank >= 1 && i-startBlank <= endDay}">
-						<td style="text-align:center" height="110" onClick="location.href='${pageContext.request.contextPath}/member/todoList?y=${targetYear}&m=${targetMonth}&d=${i-startBlank}'">
+						<td style="text-align:center" bgcolor="#ffebb5" height="110" onClick="location.href='${pageContext.request.contextPath}/member/todoList?y=${targetYear}&m=${targetMonth}&d=${i-startBlank}'">
 							<div>
 							<a style="color: black;" href="${pageContext.request.contextPath}/member/todoList?y=${targetYear}&m=${targetMonth}&d=${i-startBlank}">${i-startBlank}</a>
 								<!-- 날짜별 일정 -->
@@ -87,13 +87,13 @@
 						</td>	
 					</c:if>
 					<c:if test="${i-startBlank < 1}">
-						<td style="text-align:center" height="110" class="text-white" bgcolor="black" onClick="location.href='${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear}&currentMonth=${targetMonth}&option=pre'">
-							<a>${preEndDay+(i-startBlank)}</a>
+						<td style="text-align:center" height="110" class="text-white" bgcolor="#FAECC5" onClick="location.href='${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear}&currentMonth=${targetMonth}&option=pre'">
+							<a style="color: #8C8C8C;">${preEndDay+(i-startBlank)}</a>
 						</td>	
 					</c:if>
 					<c:if test="${i-startBlank > endDay}">
-						<td style="text-align:center" height="110" class="text-white" bgcolor="#8C8C8C" onClick="location.href='${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear}&currentMonth=${targetMonth}&option=next'">
-							<a>${i-startBlank-endDay}</a>
+						<td style="text-align:center" height="110" class="text-white" bgcolor="#FAECC5" onClick="location.href='${pageContext.request.contextPath}/member/calendar?currentYear=${targetYear}&currentMonth=${targetMonth}&option=next'">
+							<a style="color: #8C8C8C;">${i-startBlank-endDay}</a>
 						</td>	
 					</c:if>
 					<c:if test="${i%7 == 0}">
@@ -102,6 +102,7 @@
 				</c:forEach>
 			</tr>
 		</table>
+		</div>
 		</div>
 	</div>
 	</div>

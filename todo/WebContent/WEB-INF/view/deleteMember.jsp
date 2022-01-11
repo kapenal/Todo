@@ -13,24 +13,23 @@
 </head>
 <body>
 	<div class="container" style="max-width: 1920px; padding-left: 0px; padding-right: 0px;">
-	<div class="row p-5" style="background-color: #8C8C8C; margin-left: 0px; margin-right: 0px; height: 1007px;">
-<!-- 		<div class="jumbotron"> -->
-<!-- 			<h1 style="text-align:center">달력</h1> -->
-<!-- 		</div> -->
-		<div class="col-lg-6 mb-0 align-itehms-left" style="background-color: black; text-align: center;  border-style: solid;border-color: #FFC107; border-right-color: black; border-top-left-radius: 20px; border-bottom-left-radius:20px; padding-left: 0px; padding-right: 0px;">
+	<div class="row p-4" style="background-color: #8C8C8C; margin-left: 0px; margin-right: 0px;  height: 969px;">
+		<div class="col-lg-6 mb-0 align-itehms-left" style="background-color: #ffebb5; text-align: center;  border-style: solid;border-color: #FFC107; border-right-color: black; border-top-left-radius: 20px; border-bottom-left-radius:20px; padding-left: 0px; padding-right: 0px; max-height: 100%">
 		<div style="margin: 240px 100px; ">
-			<h1 style="color: #FFC107; font-size: 70pt;">회원탈퇴</h1>
+			<h1 style="color: black; font-size: 70pt;">회원탈퇴</h1>
 			<br>
-			<h1 class="text-white" style="font-size: 40pt;"><span class="text-warning">${loginMember.memberId}</span>님 반갑습니다</h1>
+			<h1 style="font-size: 40pt; color: #8C8C8C;"><span style="color: black;">${loginMember.memberId}</span>님 반갑습니다</h1>
 			<br>
 			<a style="margin-right: 5%;'" href="${pageContext.request.contextPath}/member/logout" class="btn btn-warning">로그아웃</a>
 			<a href="${pageContext.request.contextPath}/member/calendar" class="btn btn-warning">취소</a>
 		</div>
 		
 		</div>
-		<div class="col-lg-6 mb-0" style="background-color: #FFC107; border-top-right-radius: 20px; border-bottom-right-radius:20px; padding-left: 0px; padding-right: 0px;">
-			<div style=" margin: 300px 50px;">
+		<div class="col-lg-6 mb-0" style="background-color: #FFFFFF; border-style: solid; border-color: #E0B94F; border-left-color: #353535; border-top-right-radius: 20px; border-bottom-right-radius:20px; padding-left: 0px; padding-right: 0px;">
+			<div style=" margin: 270px 50px; background-color: #ffebb5; height: 40%; width: 90%; border-radius: 20px; border-style: solid; border-color: #BDBDBD;">
 				<div style="text-align: center;">
+				<br>
+				<br>
 				<span><h2 style="font-size: 40pt;">회원탈퇴하겠습니까?</h2></span>
 				<br>
 				<form method="post" id="deleteForm" action="${pageContext.request.contextPath}/member/removeMember">

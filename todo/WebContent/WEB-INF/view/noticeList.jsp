@@ -35,7 +35,7 @@
 			</table>
 		</div>
 		<c:if test="${loginAdmin != null}">
-			<a href="${pageContext.request.contextPath}/admin/addNotice" id="addNoticeBtn" class="btn btn-outline-primary">글작성</a>
+			<a href="${pageContext.request.contextPath}/admin/addNotice" id="addNoticeBtn" class="btn btn-outline-primary">${loginAdmin}글작성</a>
 		</c:if>
 		<div>
 			<c:if test="${startPage > 1}">

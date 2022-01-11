@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,20 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import service.AdminService;
+import service.NoticeService;
 import vo.Admin;
+import vo.Notice;
 
 
 @WebServlet("/notLogin/adminLogin")
 public class AdminLoginController extends HttpServlet {
 	private AdminService adminService;
 	private Admin admin;
-	
+	private NoticeService noticeService;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// login 폼페이지
+		System.out.println("디버깅");
+		noticeService = new NoticeService();
+		List<Notice> noticeList = noticeService.getNoticeList5();
+		request.setAttribute("noticeList", noticeList);
 		
-		request.getRequestDispatcher("/WEB-INF/view/adminLogin.jsp").forward(request, response);
+		// request.getRequestDispatcher("/WEB-INF/view/adminLogin.jsp").forward(request, response);
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
